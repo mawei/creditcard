@@ -14,26 +14,26 @@
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="height:10%;">
             <img class="img-responsive center-block" src="/creditcard/images/yiyika_logo.png">
         </div>
-        <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="background-image: url('/creditcard/images/middle_bg.png');background-size: 100% 100%;height:50%;margin-top: 10%;margin-bottom: 10%">
+        <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="background-image: url('/creditcard/images/middle_bg.png');background-size: 100% 100%;height:56%">
               <div class="" style="margin-top: 70%">
-              <img src="/creditcard/<?php echo $path;?>" width="80%">
+              <img src="/<?php echo $path;?>" width="80%">
              </div>
              <p class="col-xs-12 col-md-12" style="height:10%;text-align:center;color:black">
                 <? echo $business_code;?>
              </p>
 
         </div>
-        <div class="col-xs-12 col-md-12" style="height:10%;vertical-align:middle">
+        <div class="col-xs-12 col-md-12" style="margin-top: 13%">
 
-          <div class="col-xs-4 col-md-4" style="height:100%;vertical-align:middle">
-                <img class="img-responsive center-block" style="margin-top: 50%" src="/creditcard/images/weixin_logo.png">
+          <div class="col-xs-4 col-md-4" >
+                <img class="img-responsive center-block" src="/creditcard/images/weixin_logo.png">
           </div>
 
           <div class="col-xs-4 col-md-4">
-                <img class="img-responsive center-block" style="margin-top: 50%" src="/creditcard/images/zhifubao_logo.png">
+                <img class="img-responsive center-block" src="/creditcard/images/zhifubao_logo.png">
           </div>
           <div class="col-xs-4 col-md-4">
-                <img class="img-responsive center-block" style="margin-top: 50%" src="/creditcard/images/weixin_logo.png">
+                <img class="img-responsive center-block"  width="60%"  src="/creditcard/images/yinlian_logo.png">
           </div>
         </div>
     </div>
