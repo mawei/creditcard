@@ -20,7 +20,7 @@
              </div>
              <p class="col-xs-12 col-md-12" style="height:10%;text-align:center;color:black">
                 <? echo $business_code;?></br>
-                <a href="<? echo SITE_URL.'/register/index?salesman='.$salesman;?>" class="btn btn-link btn-xs active" role="button">点击注册</a>
+                <a href="<? echo BASE_URL.'/register/index?salesman='.$salesman;?>" class="btn btn-link btn-xs active" role="button">点击注册</a>
              </p>
         </div>
         <div class="col-xs-12 col-md-12" style="margin-top: 13%">
