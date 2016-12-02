@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="robots" content="noindex,nofollow" />
-<title><?php echo SITE_NAME?></title>
+<title>获取二维码|微信支付宝|二维码收款|0.38秒到</title>
 <link href="<?php echo base_url('css/bootstrap.min.css')?>" rel="stylesheet">
 <link type="text/css" href="<?php echo base_url('css/font-awesome.min.css')?>" rel="stylesheet" />
 <link type="text/css" href="<?php echo base_url('css/jquery.dataTables.min.css')?>" rel="stylesheet" />

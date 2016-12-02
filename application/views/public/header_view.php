@@ -9,7 +9,7 @@
     <meta name="keyword" content="<?php echo $keyword?>">
     <meta name="author" content="autocodeigniter.com">
     <link rel="icon" href="favicon.ico"> -->
-    <title>一一卡</title>
+    <title>获取二维码|微信支付宝|二维码收款|0.38秒到</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">

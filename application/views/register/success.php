@@ -16,12 +16,12 @@
         </div>
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="background-image: url('/creditcard/images/middle_bg.png');background-size: 100% 100%;height:56%">
               <div class="" style="margin-top: 70%">
-              <img src="/<?php echo $path;?>" width="80%">
+              <img src="<?php echo SITE_URL.$path;?>" width="80%">
              </div>
              <p class="col-xs-12 col-md-12" style="height:10%;text-align:center;color:black">
-                <? echo $business_code;?>
+                <? echo $business_code;?></br>
+                <a href="<? echo SITE_URL.'/register/index?salesman='.$salesman;?>" class="btn btn-link btn-xs active" role="button">点击注册</a>
              </p>
-
         </div>
         <div class="col-xs-12 col-md-12" style="margin-top: 13%">
 
@@ -37,7 +37,6 @@
           </div>
         </div>
     </div>
- </div>
 
 <div id="wrapper"><!-- 最外层部分 -->
     <div id="banner"><!-- 轮播部分 -->
@@ -190,9 +189,9 @@
   ul,li{list-style: none;}
   a{text-decoration: none;}
  
-  #wrapper{position: relative;margin: 30px auto;width: 100%;height: 200px;}
-  #banner{position:relative;width: 100%;height: 200px;overflow: hidden;}
-  .imgList{position:relative;width:2000px;height:200px;z-index: 10;overflow: hidden;}
+  #wrapper{position: relative;margin: 30px auto;width: 100%;height: 60px;}
+  #banner{position:relative;width: 100%;height: 60px;overflow: hidden;}
+  .imgList{position:relative;width:2000px;height:60px;z-index: 10;overflow: hidden;}
   .imgList li{float:left;display: inline;}
   #prev,
   #next{position: absolute;top:80px;z-index: 20;cursor: pointer;opacity: 0.2;filter:alpha(opacity=20);}
