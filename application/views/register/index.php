@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed.'); ?>
 <?php echo template('public','header_view',array('date'=>$date))?>
  <div class="col-xs-12 col-md-4 col-md-offset-4" style="background-color: ;height: 100%;padding: 2px;">
-    <div class="col-xs-12 col-md-12" style="height:100%;border-radius:10px;background-image: url('<? echo SITE_URL;?>images/bg.jpg');background-size:100% 100%">
+    <div class="col-xs-12 col-md-12" style="height:100%;border-radius:10px;background-image: url('<? echo SITE_URL;?>images/bg.png');background-size:100% 100%">
         <div class="col-xs-3 col-md-3" style="height:10%;margin-top: 10%">
           <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/fulinmen_logo.png">
         </div>
