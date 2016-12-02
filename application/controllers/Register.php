@@ -23,18 +23,20 @@ class Register extends Front_Controller {
 	{
 		$ads = $this->db->query("select * from `t_aci_advertisement` where is_delete='是' order by sort")->result_array();
 
-		$business_id = $this->format_get("business_id");
-		$r = $this->db->query ( "select href_a,business_code from `t_aci_business` where business_id = '{$business_id}' " )->result_array ();
+		$business_id = $this->encrypt->decode($this->format_get("business_id"),$this->key);
+		$r = $this->db->query ( "select href_a,business_code,salesman from `t_aci_business` where business_id = '{$business_id}' " )->result_array ();
 		$random = mt_rand ( 111111, 999999 );
 		$path = "qrcode/qrcode_". $random .".png";
 		$business_code = "";
+		$salesman = "";
 		if(count($r) > 0)
 		{
 			$this->qrcode->png($r[0]["href_a"],$path,'L',6);
 			$business_code = $r[0]['business_code'];
+			$salesman = $r[0]['salesman'];
 		}
 
-		$this->view('success',array('date'=>date('Y-m-d H:i:s'),'require_js'=>true,'path'=>$path,'ads'=>$ads,'business_code'=>$business_code));
+		$this->view('success',array('date'=>date('Y-m-d H:i:s'),'require_js'=>true,'path'=>$path,'ads'=>$ads,'business_code'=>$business_code,'salesman'=>$salesman));
 	}
 
 
@@ -65,7 +67,7 @@ class Register extends Front_Controller {
 		$result = $this->db->query ( "select * from `t_aci_business` where customer_telephone = '{$telephone}'" )->result_array ();
 		
 		if (count ( $result ) >= 1) {
-			$this->output_result ( - 1, 'failed', '该用户已注册' );
+			$this->output_result ( - 1, 'failed', '该用户已领取' );
 		} else {
 			
 			$data['salesman'] = $salesman;
@@ -76,9 +78,9 @@ class Register extends Front_Controller {
 			if(count($r) > 0)
 			{
 				$this->db->query ( "update `t_aci_business` set customer_telephone={$telephone},customer_name='{$customer_name}',customer_create_time=now() where business_id={$r[0]['business_id']}" );
-				$this->output_result ( 0, 'success', $r[0]['business_id'] );
+				$this->output_result ( 0, $r[0]['business_id'],$this->encrypt->encode($r[0]['business_id'],$this->key) );
 			}else{
-				$this->output_result ( - 1, 'failed', '注册失败，请联系业务员' );
+				$this->output_result ( - 1, 'failed', '领取失败，请联系业务员' );
 			}
 		}
 	}
