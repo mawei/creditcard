@@ -28,15 +28,15 @@ class Register extends Front_Controller {
 		$random = mt_rand ( 111111, 999999 );
 		$path = "qrcode/qrcode_". $random .time().".png";
 		$business_code = "";
-		$salesman = "";
+		$href_a = "";
 		if(count($r) > 0)
 		{
 			$this->qrcode->png($r[0]["href_a"],$path,'L',6);
 			$business_code = $r[0]['business_code'];
-			$salesman = $r[0]['salesman'];
+			$href_a = $r[0]['href_a'];
 		}
 
-		$this->view('success',array('date'=>date('Y-m-d H:i:s'),'require_js'=>true,'path'=>$path,'ads'=>$ads,'business_code'=>$business_code,'salesman'=>$salesman));
+		$this->view('success',array('date'=>date('Y-m-d H:i:s'),'require_js'=>true,'path'=>$path,'ads'=>$ads,'business_code'=>$business_code,'href_a'=>$href_a));
 	}
 
 
