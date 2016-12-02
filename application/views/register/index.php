@@ -1,20 +1,20 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed.'); ?>
 <?php echo template('public','header_view',array('date'=>$date))?>
  <div class="col-xs-12 col-md-4 col-md-offset-4" style="background-color: ;height: 100%;padding: 2px;">
-    <div class="col-xs-12 col-md-12" style="height:100%;border-radius:10px;background-image: url('/creditcard/images/bg.jpg');background-size:100% 100%">
+    <div class="col-xs-12 col-md-12" style="height:100%;border-radius:10px;background-image: url('<? echo SITE_URL;?>/images/bg.jpg');background-size:100% 100%">
         <div class="col-xs-3 col-md-3" style="height:10%;margin-top: 10%">
-          <img class="img-responsive center-block" src="/creditcard/images/fulinmen_logo.png">
+          <img class="img-responsive center-block" src="<? echo SITE_URL;?>/images/fulinmen_logo.png">
         </div>
         <div class="col-xs-3 col-md-3" " style="height:10%;margin-top: 10%">
-            <img class="img-responsive center-block" width="120%" src="/creditcard/images/shihuijun_logo.png">
+            <img class="img-responsive center-block" width="120%" src="<? echo SITE_URL;?>/images/shihuijun_logo.png">
         </div>
         <div class="col-xs-6 col-md-6" style="height:10%;margin-top: 11%">
-            <img class="img-responsive center-block" width="70%"  src="/creditcard/images/deshuo_logo.png">
+            <img class="img-responsive center-block" width="70%"  src="<? echo SITE_URL;?>/images/deshuo_logo.png">
         </div>
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="height:10%;">
-            <img class="img-responsive center-block" src="/creditcard/images/yiyika_logo.png">
+            <img class="img-responsive center-block" src="<? echo SITE_URL;?>/images/yiyika_logo.png">
         </div>
-        <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2 " style="background-image: url('/creditcard/images/middle_bg.png');background-size: 100% 100%; height:56%;">
+        <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2 " style="background-image: url('<? echo SITE_URL;?>/images/middle_bg.png');background-size: 100% 100%; height:56%;">
               <div class="" style="margin-top: 70%">
                 <form class="form-horizontal" role="form" id="form">
               <div class="form-group">
@@ -51,14 +51,14 @@
         </div>
         <div class="col-xs-12 col-md-12" style="margin-top: 13%" >
           <div class="col-xs-4 col-md-4">
-                <img class="img-responsive center-block" src="/creditcard/images/weixin_logo.png">
+                <img class="img-responsive center-block" src="<? echo SITE_URL;?>/images/weixin_logo.png">
           </div>
 
           <div class="col-xs-4 col-md-4">
-                <img class="img-responsive center-block" src="/creditcard/images/zhifubao_logo.png">
+                <img class="img-responsive center-block" src="<? echo SITE_URL;?>/images/zhifubao_logo.png">
           </div>
           <div class="col-xs-4 col-md-4">
-                <img class="img-responsive center-block" width="60%" src="/creditcard/images/yinlian_logo.png">
+                <img class="img-responsive center-block" width="60%" src="<? echo SITE_URL;?>/images/yinlian_logo.png">
           </div>
         </div>
     </div>

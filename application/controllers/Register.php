@@ -26,7 +26,7 @@ class Register extends Front_Controller {
 		$business_id = $this->encrypt->decode($this->format_get("business_id"),$this->key);
 		$r = $this->db->query ( "select href_a,business_code,salesman from `t_aci_business` where business_id = '{$business_id}' " )->result_array ();
 		$random = mt_rand ( 111111, 999999 );
-		$path = "qrcode/qrcode_". $random .".png";
+		$path = "qrcode/qrcode_". $random .time().".png";
 		$business_code = "";
 		$salesman = "";
 		if(count($r) > 0)
