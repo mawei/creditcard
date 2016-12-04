@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') or exit('No direct script access allowed.'); ?>
 <?php echo template('public','header_view',array('date'=>$date))?>
  <div class="col-xs-12 col-md-4 col-md-offset-4" style="background-color: ;height: 100%;padding: 2px;">
-    <div class="col-xs-12 col-md-12" style="height:100%;border-radius:10px;background-image: url('<? echo SITE_URL;?>images/bg.png');background-size:100% 100%">
+    <div class="col-xs-12 col-md-12" style="height:100%;background-image: url('<? echo SITE_URL;?>images/bg.png');background-size:100% 100%">
         <div class="col-xs-3 col-md-3" style="height:10%;margin-top: 10%">
           <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/fulinmen_logo.png">
         </div>
@@ -42,18 +42,13 @@
     <div id="banner"><!-- 轮播部分 -->
       <ul class="imgList"><!-- 图片部分 -->
       <?php foreach ($ads as $val) {?>
-      <li><a href="<?php echo $val['href'];?>"><img src="<?php echo UPLOAD_URL.$val['image'];?>" width="400px" height="200px" alt="<?php echo $val['title'];?>"></a></li>
+      <li><a href="<?php echo $val['href'];?>"><img src="<?php echo UPLOAD_URL.$val['image'];?>" width="100%" height="100px" alt="<?php echo $val['title'];?>"></a></li>
       <?php }?>
       </ul>
     <!--   <img src="./img/prev.png" width="20px" height="40px" id="prev">
       <img src="./img/next.png" width="20px" height="40px" id="next"> -->
       <div class="bg"></div> <!-- 图片底部背景层部分-->
-      <ul class="infoList"><!-- 图片左下角文字信息部分 -->
-            <?php foreach ($ads as $val) {?>
 
-        <li class="infoOn"><?php echo $val['title'];?></li>
-              <?php }?>
-      </ul>
       <ul class="indexList"><!-- 图片右下角序号部分 -->
         <?php foreach ($ads as $key=>$val) {?>
 
@@ -178,7 +173,8 @@
     },2500);
     }
   function changeTo(num){ 
-    var goLeft = num * 400;
+    var width = $(".imgList").find("li")[0].offsetWidth
+    var goLeft = num * width; 
     $(".imgList").animate({left: "-" + goLeft + "px"},500);
     $(".infoList").find("li").removeClass("infoOn").eq(num).addClass("infoOn");
     $(".indexList").find("li").removeClass("indexOn").eq(num).addClass("indexOn");
@@ -189,17 +185,17 @@
   ul,li{list-style: none;}
   a{text-decoration: none;}
  
-  #wrapper{position: relative;margin: 30px auto;width: 100%;height: 60px;}
-  #banner{position:relative;width: 100%;height: 60px;overflow: hidden;}
-  .imgList{position:relative;width:2000px;height:60px;z-index: 10;overflow: hidden;}
-  .imgList li{float:left;display: inline;}
+  #wrapper{position: relative;margin: 30px auto;width: 100%;height: 100px;}
+  #banner{position:relative;width: 100%;height: 100px;overflow: hidden;}
+  .imgList{position:relative;width:<?echo count($ads);?>00%;height:100px;z-index: 10;overflow: hidden;}
+  .imgList li{float:left;display: inline;width: <?echo 100/count($ads);?>%}
   #prev,
   #next{position: absolute;top:80px;z-index: 20;cursor: pointer;opacity: 0.2;filter:alpha(opacity=20);}
   #prev{left: 10px;}
   #next{right: 10px;}
   #prev:hover,
   #next:hover{opacity: 0.5;filter:alpha(opacity=50);}
-  .bg{position: absolute;bottom: 0;width: 100%;height: 40px;z-index:20;opacity: 0.4;filter:alpha(opacity=40);background: black;}
+  .bg{position: absolute;bottom: 0;width: 100%;height: 40px;z-index:20;opacity: 0.4;filter:alpha(opacity=40);}
   .infoList{position: absolute;left: 10px;bottom: 10px;z-index: 30;}
   .infoList li{display: none;}
   .infoList .infoOn{display: inline;color: white;}
