@@ -74,7 +74,7 @@ class Register extends Front_Controller {
 			$data['customer_name'] = $customer_name;
 			$data['customer_telephone'] = $telephone;
 
-			$r = $this->db->query ( "select * from `t_aci_business` where salesman = '{$salesman}' and (customer_telephone = '' or customer_telephone is null)" )->result_array ();
+			$r = $this->db->query ( "select * from `t_aci_business` where salesman = '{$salesman}' and (customer_telephone = '' or customer_telephone is null) order by business_code asc" )->result_array ();
 			if(count($r) > 0)
 			{
 				$this->db->query ( "update `t_aci_business` set customer_telephone={$telephone},customer_name='{$customer_name}',customer_create_time=now() where business_id={$r[0]['business_id']}" );
