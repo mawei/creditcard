@@ -42,7 +42,7 @@
                   <button type="button" class="btn btn-success" id="register">领取</button>
                 </div>
               </div>
-              <p class="text-right" ><a class="text-info" href="<? echo SITE_URL;?>/register/getback">［找回领取点这里］</a></p>
+              <p class="text-right" ><a class="text-info" href="<? echo SITE_URL;?>register/getback">［找回领取点这里］</a></p>
 
               <input type="hidden" name="secret_telephone" id="secret_telephone">
               <input type="hidden" name="secret_authcode" id="secret_authcode">
