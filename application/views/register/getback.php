@@ -23,14 +23,14 @@
                   <input type="text" class="form-control" id="customer_telephone" name="customer_telephone" placeholder="手机号">
                 </div>
               </div>
-              <div class="form-group">
+<!--               <div class="form-group">
                 <div class="col-xs-7 col-md-7">
                   <input type="text" class="form-control" id="authcode" name="authcode" placeholder="输入验证码">
                 </div>
                 <div class="col-xs-4 col-md-4">
                   <button type="button" class="btn btn-info btn-sm" id="get_auth_btn">验证码</button>
                 </div>
-              </div>
+              </div> -->
 
 
               <div class="form-group">

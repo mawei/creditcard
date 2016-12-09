@@ -93,23 +93,23 @@ class Register extends Front_Controller {
 	}
 
 	public function getbackCheck() {
-		$authcode = $this->format_get ( 'authcode' );
+		// $authcode = $this->format_get ( 'authcode' );
 		$telephone = $this->format_get ( 'customer_telephone' );
 		$secret_telephone = $this->encrypt->decode ( $this->format_get ( 'secret_telephone' ), $this->key );
-		$auth_code_secret = $this->encrypt->decode ( $this->format_get ( 'secret_authcode' ), $this->key );
+		// $auth_code_secret = $this->encrypt->decode ( $this->format_get ( 'secret_authcode' ), $this->key );
 
 		if($telephone == "")
 		{
 			$this->output_result ( - 1, 'failed', '手机号码不能为空' );
 		}
-		if($authcode == "")
-		{
-			$this->output_result ( - 1, 'failed', '验证码不能为空' );
-		}
+		// if($authcode == "")
+		// {
+		// 	$this->output_result ( - 1, 'failed', '验证码不能为空' );
+		// }
 
-		if ($authcode != $auth_code_secret) {
-			$this->output_result ( - 1, 'failed', '验证码错误' );
-		}
+		// if ($authcode != $auth_code_secret) {
+		// 	$this->output_result ( - 1, 'failed', '验证码错误' );
+		// }
 		$result = $this->db->query ( "select * from `t_aci_business` where customer_telephone = '{$telephone}'" )->result_array ();
 		
 		if (count ( $result ) == 0) {
@@ -122,7 +122,7 @@ class Register extends Front_Controller {
 
 	public function get_authcode() {
 		$telephone = $this->format_get ( 'telephone' );
-		$authcode = mt_rand ( 111111, 999999 );
+		$authcode = mt_rand ( 1111, 9999 );
 	
 		$res['telephone'] = $this->encrypt->encode ( $telephone, $this->key );
 		$res['authcode'] = $this->encrypt->encode ( $authcode, $this->key );
@@ -146,7 +146,7 @@ class Register extends Front_Controller {
 
 	public function getback_authcode() {
 		$telephone = $this->format_get ( 'telephone' );
-		$authcode = mt_rand ( 111111, 999999 );
+		$authcode = mt_rand ( 1111, 9999 );
 	
 		$res['telephone'] = $this->encrypt->encode ( $telephone, $this->key );
 		$res['authcode'] = $this->encrypt->encode ( $authcode, $this->key );
