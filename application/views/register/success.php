@@ -20,9 +20,10 @@
              </div>
              <p class="col-xs-12 col-md-12" style="height:10%;text-align:center;color:black">
                 <? echo $business_code;?></br>
-                <a href="<? echo $href_a;?>" class="btn-info btn-sm active" role="button">点击注册</a>
+                <a href="<? echo $href_a;?>" class="btn-info btn active" role="button">点击注册</a>
              </p>
         </div>
+
         <div class="col-xs-12 col-md-12" style="margin-top: 13%">
 
           <div class="col-xs-4 col-md-4" >

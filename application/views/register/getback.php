@@ -17,11 +17,7 @@
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2 " style="background-image: url('<? echo SITE_URL;?>images/middle_bg.png');background-size: 100% 100%; height:56%;">
               <div class="" style="margin-top: 70%">
                 <form class="form-horizontal" role="form" id="form">
-              <div class="form-group">
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" id="customer_name" name="customer_name" placeholder="姓名">
-                </div>
-              </div>
+              <h3 class="text-info">找回领取二维码</h3>
               <div class="form-group">
                 <div class="col-xs-12">
                   <input type="text" class="form-control" id="customer_telephone" name="customer_telephone" placeholder="手机号">
@@ -39,11 +35,10 @@
 
               <div class="form-group">
                 <div class="col-sm-offset-1 col-sm-10">
-                  <button type="button" class="btn btn-success" id="register">领取</button>
+                  <button type="button" class="btn btn-success" id="register">找回</button>
                 </div>
               </div>
-              <p class="text-right" ><a class="text-info" href="<? echo SITE_URL;?>/register/getback">［找回领取点这里］</a></p>
-
+              
               <input type="hidden" name="secret_telephone" id="secret_telephone">
               <input type="hidden" name="secret_authcode" id="secret_authcode">
               <input type="hidden" name="salesman" id="salesman" value="<?php echo $salesman;?>">
@@ -114,7 +109,7 @@
           var customer_telephone = $("#customer_telephone").val();
           $.ajax({
           type: "GET",
-          url: SITE_URL+"register/get_authcode?telephone="+customer_telephone,
+          url: SITE_URL+"register/getback_authcode?telephone="+customer_telephone,
           success:function(response){
             var dataObj=jQuery.parseJSON(response);
             if(dataObj.code!=0)
@@ -137,13 +132,13 @@
 
           $.ajax({
           type: "GET",
-          url: SITE_URL+"register/register",
+          url: SITE_URL+"register/getbackCheck",
           data:  $("#form").serialize(),
           success:function(response){
             var dataObj=jQuery.parseJSON(response);
             if(dataObj.code==0)
             {
-              alert("领取成功");
+              alert("找回成功");
               window.location.href=SITE_URL+'register/success?business_id='+ dataObj.data; 
 
             }else

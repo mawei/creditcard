@@ -85,6 +85,40 @@ class Register extends Front_Controller {
 		}
 	}
 
+	function getback()
+	{
+		$ads = $this->db->query("select * from `t_aci_advertisement` where is_delete='是' order by sort")->result_array();
+		$salesman = $this->format_get("salesman");
+		$this->view('getback',array('date'=>date('Y-m-d H:i:s'),'require_js'=>true,'salesman'=>$salesman,'ads'=>$ads));
+	}
+
+	public function getbackCheck() {
+		$authcode = $this->format_get ( 'authcode' );
+		$telephone = $this->format_get ( 'customer_telephone' );
+		$secret_telephone = $this->encrypt->decode ( $this->format_get ( 'secret_telephone' ), $this->key );
+		$auth_code_secret = $this->encrypt->decode ( $this->format_get ( 'secret_authcode' ), $this->key );
+
+		if($telephone == "")
+		{
+			$this->output_result ( - 1, 'failed', '手机号码不能为空' );
+		}
+		if($authcode == "")
+		{
+			$this->output_result ( - 1, 'failed', '验证码不能为空' );
+		}
+
+		if ($authcode != $auth_code_secret) {
+			$this->output_result ( - 1, 'failed', '验证码错误' );
+		}
+		$result = $this->db->query ( "select * from `t_aci_business` where customer_telephone = '{$telephone}'" )->result_array ();
+		
+		if (count ( $result ) == 0) {
+			$this->output_result ( - 1, 'failed', '该用户尚未领取,请先返回领取' );
+		} else {
+			$this->output_result ( 0, $result[0]['business_id'],$this->encrypt->encode($result[0]['business_id'],$this->key) );
+		}
+	}
+
 
 	public function get_authcode() {
 		$telephone = $this->format_get ( 'telephone' );
@@ -107,6 +141,30 @@ class Register extends Front_Controller {
 			}
 		}else{
 			$this->output_result(-1, 'failed', '该手机号已注册');
+		}
+	}
+
+	public function getback_authcode() {
+		$telephone = $this->format_get ( 'telephone' );
+		$authcode = mt_rand ( 111111, 999999 );
+	
+		$res['telephone'] = $this->encrypt->encode ( $telephone, $this->key );
+		$res['authcode'] = $this->encrypt->encode ( $authcode, $this->key );
+	
+		$result = $this->db->query ( "select * from `t_aci_business` where customer_telephone = '{$telephone}'" )->result_array ();
+
+		if(count($result) == 1)
+		{
+			$clapi  = new ChuanglanSmsApi();
+			$result = $clapi->sendSMS($telephone, '您好，您的验证码是'.$authcode);
+			$result = $clapi->execResult($result);
+			if(isset($result[1]) && $result[1]==0){
+				$this->output_result(0, $res['telephone'], $res['authcode']);
+			}else{
+				$this->output_result(-1, 'failed', '发送失败');
+			}
+		}else{
+			$this->output_result(-1, 'failed', '该手机号尚未注册');
 		}
 	}
 
