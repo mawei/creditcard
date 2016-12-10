@@ -38,11 +38,14 @@
 
 
               <div class="form-group">
-                <div class="col-sm-offset-1 col-sm-10">
+                <div class=" col-xs-7">
+                  <a class="text-info" href="<? echo SITE_URL;?>register/getback"><small>［找回领取］</small></a></p>
+                </div>
+
+                <div class=" col-xs-4">
                   <button type="button" class="btn btn-success" id="register">领取</button>
                 </div>
               </div>
-              <p class="text-right" ><a class="text-info" href="<? echo SITE_URL;?>register/getback">［找回领取点这里］</a></p>
 
               <input type="hidden" name="secret_telephone" id="secret_telephone">
               <input type="hidden" name="secret_authcode" id="secret_authcode">

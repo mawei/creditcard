@@ -98,6 +98,7 @@ class Register extends Front_Controller {
 		$secret_telephone = $this->encrypt->decode ( $this->format_get ( 'secret_telephone' ), $this->key );
 		// $auth_code_secret = $this->encrypt->decode ( $this->format_get ( 'secret_authcode' ), $this->key );
 
+
 		if($telephone == "")
 		{
 			$this->output_result ( - 1, 'failed', '手机号码不能为空' );
