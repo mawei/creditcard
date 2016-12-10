@@ -17,7 +17,7 @@
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2 " style="background-image: url('<? echo SITE_URL;?>images/middle_bg.png');background-size: 100% 100%; height:56%;">
               <div class="" style="margin-top: 70%">
                 <form class="form-horizontal" role="form" id="form">
-              <h3 class="text-info">找回领取二维码</h3>
+              <h3 class="text-info">提取二维码</h3>
               <div class="form-group">
                 <div class="col-xs-12">
                   <input type="text" class="form-control" id="customer_telephone" name="customer_telephone" placeholder="手机号">
@@ -38,7 +38,7 @@
                   <button type="button" class="btn btn-success" id="register">找回</button>
                 </div>
               </div>
-              
+
               <input type="hidden" name="secret_telephone" id="secret_telephone">
               <input type="hidden" name="secret_authcode" id="secret_authcode">
               <input type="hidden" name="salesman" id="salesman" value="<?php echo $salesman;?>">
