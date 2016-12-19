@@ -70,13 +70,13 @@
     <!--   <img src="./img/prev.png" width="20px" height="40px" id="prev">
       <img src="./img/next.png" width="20px" height="40px" id="next"> -->
       <div class="bg"></div> <!-- 图片底部背景层部分-->
-
-      <ul class="indexList"><!-- 图片右下角序号部分 -->
+<!-- 图片右下角序号部分 -->
+<!--       <ul class="indexList">
         <?php foreach ($ads as $key=>$val) {?>
 
         <li <?if($key==0){?>class="indexOn"<?}?>><?php echo $key+1;?></li>
         <?php }?>
-                    </ul>
+         </ul> -->
     </div>
   </div>
 
