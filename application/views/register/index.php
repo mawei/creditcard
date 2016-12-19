@@ -54,7 +54,7 @@
             </div>
 
         </div>
-        <div class="col-xs-12 col-md-12" style="margin-top: 13%" >
+<!--         <div class="col-xs-12 col-md-12" style="margin-top: 13%" >
           <div class="col-xs-4 col-md-4">
                 <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/weixin_logo.png">
           </div>
@@ -65,7 +65,7 @@
           <div class="col-xs-4 col-md-4">
                 <img class="img-responsive center-block" width="60%" src="<? echo SITE_URL;?>images/yinlian_logo.png">
           </div>
-        </div>
+        </div> -->
     </div>
 
 <div id="wrapper"><!-- 最外层部分 -->

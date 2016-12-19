@@ -9,7 +9,7 @@
             <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/shihuijun_logo.png">
         </div>
         <div class="col-xs-6 col-md-6" style="height:10%;margin-top: 11%">
-            <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/deshuo_logo.png">
+            <img class="img-responsive center-block" width="70%"  src="<? echo SITE_URL;?>images/deshuo_logo.png">
         </div>
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="height:10%;">
             <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/yiyika_logo.png">
@@ -20,11 +20,11 @@
              </div>
              <p class="col-xs-12 col-md-12" style="height:10%;text-align:center;color:black">
                 <? echo $business_code;?></br>
-                <a href="<? echo $href_a;?>" class="btn-info btn active" role="button">点击注册</a>
+                <a href="<? echo $href_a;?>" class="btn-info btn active" role="button">注册|使用</a>
              </p>
         </div>
 
-        <div class="col-xs-12 col-md-12" style="margin-top: 13%">
+        <!-- <div class="col-xs-12 col-md-12" style="margin-top: 13%">
 
           <div class="col-xs-4 col-md-4" >
                 <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/weixin_logo.png">
@@ -36,7 +36,7 @@
           <div class="col-xs-4 col-md-4">
                 <img class="img-responsive center-block"  width="60%"  src="<? echo SITE_URL;?>images/yinlian_logo.png">
           </div>
-        </div>
+        </div> -->
     </div>
 
 <div id="wrapper"><!-- 最外层部分 -->

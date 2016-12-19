@@ -35,7 +35,7 @@
 
               <div class="form-group">
                 <div class="col-sm-offset-1 col-sm-10">
-                  <button type="button" class="btn btn-success" id="register">找回</button>
+                  <button type="button" class="btn btn-success" id="register">提取</button>
                 </div>
               </div>
 
@@ -46,7 +46,7 @@
             </div>
 
         </div>
-        <div class="col-xs-12 col-md-12" style="margin-top: 13%" >
+<!--         <div class="col-xs-12 col-md-12" style="margin-top: 13%" >
           <div class="col-xs-4 col-md-4">
                 <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/weixin_logo.png">
           </div>
@@ -57,7 +57,7 @@
           <div class="col-xs-4 col-md-4">
                 <img class="img-responsive center-block" width="60%" src="<? echo SITE_URL;?>images/yinlian_logo.png">
           </div>
-        </div>
+        </div> -->
     </div>
 
 <div id="wrapper"><!-- 最外层部分 -->
@@ -138,7 +138,7 @@
             var dataObj=jQuery.parseJSON(response);
             if(dataObj.code==0)
             {
-              alert("找回成功");
+              alert("提取成功");
               window.location.href=SITE_URL+'register/success?business_id='+ dataObj.data; 
 
             }else
