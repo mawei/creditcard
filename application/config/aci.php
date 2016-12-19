@@ -483,8 +483,8 @@ $config['aci_module'] = array (
         'folder' => 'adminpanel',
         'controller' => 'business',
         'method' => 'output',
-        'menu_name' => '导入',
-        'caption' => '导入',
+        'menu_name' => '导出',
+        'caption' => '导出',
       ),
 
     ),

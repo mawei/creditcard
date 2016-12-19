@@ -26,9 +26,9 @@ define(function (require) {
 						message: '用户名不能为空'
 					},
 					stringLength: {
-						min: 6,
+						min: 1,
 						max: 30,
-						message: '用户名请为6到30个字符之间'
+						message: '用户名请为1到30个字符之间'
 					},
 					remote: {
 						url: SITE_URL+folder_name+'/user/check_username',

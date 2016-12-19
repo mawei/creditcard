@@ -18,6 +18,7 @@ class Business extends Admin_Controller {
     function __construct()
 	{
 		parent::__construct();
+
 		$this->load->model(array('business_model'));
         $this->load->helper(array('auto_codeIgniter_helper','array'));
         //$this->load->helper ( array ('form', 'url', 'common' ) );
@@ -36,6 +37,8 @@ class Business extends Admin_Controller {
 										'customer_create_time'=>'customer_create_time',
 										'business_create_time'=>'business_create_time',
 										);
+        $user_name = $this->session->userdata('user_name');
+        $user_id = $this->session->userdata('user_id');
 	}
     
     /**
@@ -46,7 +49,7 @@ class Business extends Admin_Controller {
     function index($page_no=0,$sort_id=0)
     {
     	$page_no = max(intval($page_no),1);
-        
+
         $orderby = "business_id desc";
         $dir = $order=  NULL;
 		$order=isset($_GET['order'])?safe_replace(trim($_GET['order'])):'';
@@ -70,11 +73,17 @@ class Business extends Admin_Controller {
         	$where_arr = NULL;
 			$_arr['keyword'] =isset($_GET['keyword'])?safe_replace(trim($_GET['keyword'])):'';
 			if($_arr['keyword']!="") $where_arr[] = "concat(business_code,salesman,customer_telephone) like '%{$_arr['keyword']}%'";
-                
-		        
-        
 		        
         	if($where_arr)$where = implode(" and ",$where_arr);
+            if($this->user_id != 1)
+            {
+                 $where .= "and salesman = '{$this->user_name}'";  
+            }
+        }
+
+        if($this->user_id != 1)
+        {
+            $where .= "salesman = '{$this->user_name}'";
         }
 
         	$data_list = $this->business_model->listinfo($where,'*',$orderby , $page_no, $this->business_model->page_size,'',$this->business_model->page_size,page_list_url('adminpanel/business/index',true));
@@ -161,13 +170,28 @@ class Business extends Admin_Controller {
             $succ_result=$error_result=$repeat_result=0;//设置导入成功和失败的总数为0
         
             //入库
-            for($j=1;$j<=$highestRow;$j++)
+            for($j=2;$j<=$highestRow;$j++)
             {
                 $strExcel='';
                 $arr = array();
                 $arr['business_code'] = $objPHPExcel->getActiveSheet()->getCell("A$j")->getValue();
                 $arr['href_a'] = $objPHPExcel->getActiveSheet()->getCell("B$j")->getValue();
                 $arr['salesman'] = $objPHPExcel->getActiveSheet()->getCell("C$j")->getValue();
+
+                if($this->user_id != 1)
+                {
+                    if($this->user_name != $arr['salesman'])
+                    {
+                        continue;
+                    }else{
+                        $arr['salesman'] = $this->user_name;
+                    }
+                }else{
+                    if($arr['salesman'] == "")
+                    {
+                        continue;
+                    }
+                }
                 $r = $this->db->query("select business_id from `t_aci_business` where business_code='{$arr['business_code']}'")->result_array();
                 if(count($r) == 0)
                 {
