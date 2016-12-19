@@ -146,7 +146,6 @@
             var dataObj=jQuery.parseJSON(response);
             if(dataObj.code==0)
             {
-              alert("领取成功");
               window.location.href=SITE_URL+'register/success?business_id='+ dataObj.data; 
 
             }else
