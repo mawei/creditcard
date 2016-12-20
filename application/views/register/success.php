@@ -16,7 +16,7 @@
         </div>
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="background-image: url('<? echo SITE_URL;?>images/middle_bg.png');background-size: 100% 100%;height:56%">
               <div class="" style="margin-top: 70%">
-              <img src="<?php echo SITE_URL.$path;?>" width="80%">
+              <img id="image" src="<?php echo SITE_URL.$path;?>" width="80%">
              </div>
              <p class="col-xs-12 col-md-12" style="height:10%;text-align:center;color:black">
                 <? echo $business_code;?></br>
@@ -64,6 +64,11 @@
         require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
             require(['<?php echo SITE_URL?>scripts/adminpanel/business/edit.js']);
         });
+
+        if($(window).height() <= 520)
+        {
+            $("#image").width("60%");
+        }
 
        $("#get_auth_btn").click(function(){
           var customer_telephone = $("#customer_telephone").val();

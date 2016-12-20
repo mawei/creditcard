@@ -14,7 +14,7 @@
         <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2" style="height:10%;">
             <img class="img-responsive center-block" src="<? echo SITE_URL;?>images/yiyika_logo.png">
         </div>
-        <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2 " style="background-image: url('<? echo SITE_URL;?>images/middle_bg.png');background-size: 100% 100%; height:56%;">
+        <div class="col-xs-8 col-md-8 col-sm-offset-2 col-xs-offset-2 " style="background-image: url('<? echo SITE_URL;?>images/middle_bg.png');background-size: 100% 100%; height:57%;">
               <div class="" style="margin-top: 70%">
                 <form class="form-horizontal" role="form" id="form">
               <div class="form-group">
@@ -47,9 +47,9 @@
                 </div>
               </div>
 
-              <input type="hidden" name="secret_telephone" id="secret_telephone">
-              <input type="hidden" name="secret_authcode" id="secret_authcode">
-              <input type="hidden" name="salesman" id="salesman" value="<?php echo $salesman;?>">
+              <input class="" type="hidden" name="secret_telephone" id="secret_telephone">
+              <input class="" type="hidden" name="secret_authcode" id="secret_authcode">
+              <input class="" type="hidden" name="salesman" id="salesman" value="<?php echo $salesman;?>">
             </form>              
             </div>
 
@@ -95,6 +95,15 @@
         require(['<?php echo SITE_URL?>scripts/common.js'], function (common) {
             require(['<?php echo SITE_URL?>scripts/adminpanel/business/edit.js']);
         });
+        if($(window).height() <= 520)
+        {
+          $(document).find("input").each(function(){
+              $(this).attr("class",$(this).attr("class") + " input-sm");
+          });
+          $(document).find("button").each(function(){
+              $(this).attr("class",$(this).attr("class") + " btn-xs");
+          });
+        }
 
         var wait=60;
         function time(o) {
