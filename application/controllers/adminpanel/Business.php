@@ -79,12 +79,14 @@ class Business extends Admin_Controller {
             {
                  $where .= "and salesman = '{$this->user_name}'";  
             }
+        }else{
+            if($this->user_id != 1)
+            {
+                $where .= "salesman = '{$this->user_name}'";
+            }
         }
 
-        if($this->user_id != 1)
-        {
-            $where .= "salesman = '{$this->user_name}'";
-        }
+        
 
         	$data_list = $this->business_model->listinfo($where,'*',$orderby , $page_no, $this->business_model->page_size,'',$this->business_model->page_size,page_list_url('adminpanel/business/index',true));
         if($data_list)
